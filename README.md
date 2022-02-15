@@ -1,5 +1,8 @@
 Miscellaneous scripts that don't require their own repositories, but which might maybe be helpful to someone at some point. All scripts are provided as-is, with no guarantee of functionality, portability, maintainability, sanity, or decency.
 
+# Anagraph Solver
+A script to find [anagraphs](https://www.youtube.com/watch?v=qTBAW-Eh0tM&t=597s). If you don't know what those are, go binge Tom7's YouTube channel. He posted his code to SourceForge, but it seemed like it would be easier to write my own than to set up whatever environment I need to build his. Can search for a specific word length, or any word length.
+
 # JMusicBot Playlist Generator
 A script to generate playlist files for [John Grosh's JMusicBot](https://github.com/jagrosh/MusicBot/). When run with no arguments, it outputs a playlist.txt file which contains absolute paths of all the audio files in the directory. The first argument is the directory to get music from; the second argument is the filename to output. Arguments are optional and positional (so you need to give a directory if you want to give a filename). Currently does not handle non-ASCII characters properly, at least on my machine.
 
