@@ -1,5 +1,8 @@
 Miscellaneous scripts that don't require their own repositories, but which might maybe be helpful to someone at some point. All scripts are provided as-is, with no guarantee of functionality, portability, maintainability, sanity, or decency.
 
+# AGAR WAD Dumper
+A script to dump the contents of Abstraction Games Archive (AGAR) .wad files. I've only tested this on [428: Shibuya Scramble](https://store.steampowered.com/app/648580/428_Shibuya_Scramble/), but presumably will work for other Abstraction Games titles (Danganronpa, Hotline Miami 2, etc). There's [an existing tool](https://github.com/TcT2k/HLMWadExplorer), but it doesn't seem to work for 428.
+
 # Anagraph Solver
 A script to find [anagraphs](https://www.youtube.com/watch?v=qTBAW-Eh0tM&t=597s). If you don't know what those are, go binge Tom7's YouTube channel. He posted his code to SourceForge, but it seemed like it would be easier to write my own than to set up whatever environment I need to build his. Can search for a specific word length, or any word length.
 
