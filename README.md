@@ -17,6 +17,9 @@ A script to extract (uncompressed, unencrypted) files that are embedded in a fil
 
 Various commandline arguments are supported; run with the help flag or look inside the script for more info about these. Some sample config .inis are provided, but these are not necessary to use.
 
+# Spelling Bee Solver
+A brute force solver for the NYT Spelling Bee daily puzzle (or more specifically, the [Freebee](https://freebee.fun/index.html) clone of Spelling Bee). Solve an individual board with `python3 spelling-bee.py <board>`, or solve all boards with `python3 spelling-bee.py all`. Boards are represented with their central letter as the first letter of the string (eg: ADFGHJK would have an A in the center and DFGHJK around). Fun fact: the highest-scoring board in Freebee is EAINRST, with a maximum of 8709 points; the lowest-scoring board is the unsuspecting XCINOPR, which has only one word, the pangram "princox," worth 14 points. Personally I was surprised that "prix" wasn't on the word list, though.
+
 # SSBU Ironman Graph Generator
 A script to generate an HTML graph for a [1v1 Smash Ironman](https://www.ssbwiki.com/Ironman#Full_Roster_Ironman), with fancy tooltips and stuff. Uses Bokeh. Some effort has been made to make it easy to edit, but given the nature of webdev, I wouldn't be surprised if this just completely breaks at some point. Assumes you're doing a full-roster ironman in SSBU, but it should be fairly easy to convert it to a more sane format by just deleting characters from the list.
 
