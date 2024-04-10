@@ -6,6 +6,9 @@ A script to dump the contents of Abstraction Games Archive (AGAR) .wad files. I'
 # Anagraph Solver
 A script to find [anagraphs](https://www.youtube.com/watch?v=qTBAW-Eh0tM). If you don't know what those are, go binge Tom7's YouTube channel. He posted his code to SourceForge, but it seemed like it would be easier to write my own than to set up whatever environment I need to build his. Can search for a specific word length, or any word length.
 
+# Backtracker
+Boilerplate/starter code for a generic [backtracking](https://en.wikipedia.org/wiki/Backtracking) algorithm in Python. The actual backtracking code and class structure is there, all you need to do is implement the state and a few functions for the puzzle class. Optionally supports finding multiple solutions and partial solutions.
+
 # Heardle in Python
 A Python re-implementation of [Heardle](https://www.heardle.app/) that uses your local music library instead of Spotify. I'm not going to make a webapp version of this for various reasons, but it's a fun time-waster.
 
