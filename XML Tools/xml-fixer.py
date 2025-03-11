@@ -12,19 +12,29 @@ OUTPUT_DIRECTORY = "..\\Fixed XML\\"
 SIMPLE_TAGS = { "option_1", "option_2", "greater_than", "lesser_than", "end_line", "quote", "player_name", "hearth", 
 		 "player_nickname", "paw", "music_note",  "left_arrow", "weapon_type", "black_dot", "three_dots"} 
 ATTR_TAGS = { "portrait_l", "portrait_r", "player", "partner", "info" }
+# Tag to insert as the new root tag
+# Set to None if you don't want to add one
+ROOT_TAG = "tl_file"
 
-def fix_file(file_contents, regexes):
+def fix_file(file_contents, regexes, root_tag):
 	"""
-	Modify file_contents to update all instances of the specified tags.
+	Modify file_contents to fix problems with the xml:
+	1. Insert a top-level tag around the file contents
+	2. Update self-closing tags to be marked as self-closing (eg "<foo>" becomes "<foo />")
 	"""
-	output = file_contents
+	if root_tag != None:
+		output = "<" + root_tag + ">\n" + file_contents
+
 	for regex in regexes:
 		output = regex.sub(r"\1 />", output)
+
+	if root_tag != None:
+		output = output + "</" + root_tag + ">"
 
 	return output
 
 
-def fix_all_files_in_directory(input_dir, output_dir, regexes):
+def fix_all_files_in_directory(input_dir, output_dir, regexes, root_tag):
 	"""
 	Return a set of all tags that exist in all xml files in the given directory.
 	This is very basic; open-close pairs and tags with different attributes will be treated as different.
@@ -38,7 +48,7 @@ def fix_all_files_in_directory(input_dir, output_dir, regexes):
 		with open(filename, "r", encoding="utf-8") as f:
 			text = f.read()
 
-		results = fix_file(text, regexes)
+		results = fix_file(text, regexes, root_tag)
 
 		output_filename = str(filename).replace(input_dir, output_dir, 1) # Only modify the first occurrence, to prevent errors like /Foo/Foo/ -> /Bar/Bar/
 		output_path = os.path.dirname(output_filename)
@@ -58,4 +68,4 @@ if __name__ == "__main__":
 	for t in ATTR_TAGS:
 		regexes.add( re.compile("(<" + t + ".+?)>") )
 
-	fix_all_files_in_directory(INPUT_DIRECTORY, OUTPUT_DIRECTORY, regexes)
+	fix_all_files_in_directory(INPUT_DIRECTORY, OUTPUT_DIRECTORY, regexes, ROOT_TAG)

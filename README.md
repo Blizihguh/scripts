@@ -30,4 +30,4 @@ A script to generate an HTML graph for a [1v1 Smash Ironman](https://www.ssbwiki
 Windows' IME (for converting QWERTY keyboard input to Japanese characters) is horrible. This AHK script makes it more palatable by replacing the messy, obnoxious, uncomfortable, generally-awful keybinds with two buttons: F1 to cycle between latin/hiragana/katakana, and F2 to cycle between half-width and full-width.
 
 # XML Tools
-Two scripts I wrote to work with malformed xml files (specifically, files where self-closing tags weren't closed properly). tag-finder.py will identify all tags in the given files, and xml-fixer.py will fix the specified tags to self-close properly. tag-finder.py should also work on valid xml files.
+Two scripts I wrote to work with malformed xml files (specifically, files where self-closing tags weren't closed properly). tag-finder.py will identify all tags in the given files, and xml-fixer.py will fix the specified tags to self-close properly, and optionally add a top-level tag as well. tag-finder.py should also work to find a list of tags in valid xml files.
