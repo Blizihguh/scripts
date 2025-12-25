@@ -35,10 +35,20 @@ def build_lex(dfile):
 	words = []
 	for _ in range(16):
 		words.append(set())
+
+	# The set of valid characters
+	formula_keys = set(FORMULAE.keys())
+
 	for line in open(dfile):
 		w = line.strip().lower()
 		w = "".join([i for i in w if i.isalpha()])
-		if len(w) <= 15:
+		valid_word = True
+		u_alpha_w = w.upper()
+		for char in u_alpha_w:
+			if char not in formula_keys:
+				valid_word = False
+				break
+		if valid_word and len(w) <= 15:
 			words[len(w)].add(w)
 	return words
 
@@ -83,9 +93,20 @@ def solve_final(lex):
 
 LEX = build_lex("american-english.txt")
 while True:
-	word = raw_input("Enter a word to make anagraphs of: ")
-	length = raw_input("Enter the desired anagraph length, or * for any length: ")
+	word = input("Enter a word to make anagraphs of: ")
+	length = input("Enter the desired anagraph length, or * for any length: ")
 	word = word.upper()
+
+	valid_input = True
+	for char in word:
+		if char not in FORMULAE:
+			print(f"Error: Input character '{char}' not defined in FORMULAE.")
+			valid_input = False
+			break
+	if not valid_input:
+		print("")
+		continue
+
 	atoms = atomize(word)
 	print("Decomposition: " + stringify(atoms))
 	print_anagraphs(atoms, length, LEX)
